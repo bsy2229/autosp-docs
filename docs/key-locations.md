@@ -29,4 +29,4 @@ symbol names rather than relying on line numbers.
 
 - Log file (primary): `C:\debug_log.txt`.
 - Saved config: `last_config.json`.
-- Real config: `cfgs\config.json` (profile "KingVonFrmDaO").
+- Real config: `cfgs\config.json`.

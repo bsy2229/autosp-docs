@@ -1,7 +1,7 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "autosp",
-  "description": "Game automation bot for Nostale. In-process engine + Tkinter GUI in a single Python script.",
+  "description": "Internal engineering knowledge base: architecture notes, code index, and config reference for a single-file Python tool.",
   "folders": ["docs"],
   "excludeFolders": [],
   "excludeFiles": [],

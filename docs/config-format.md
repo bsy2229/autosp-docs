@@ -1,20 +1,20 @@
 # Config format
 
-## cfgs\config.json (real config, profile "KingVonFrmDaO")
+## cfgs\config.json
 
 Top-level structure:
 
 ```json
 {
-  "last_profile": "KingVonFrmDaO",
+  "last_profile": "MainProfile",
   "profiles": {
-    "KingVonFrmDaO": [
-      { "name": "KingVonFrmDaO", "role": "main",
-        "config": "E:\\Games\\Nostale\\merlin räuberinnenhof.ini",
-        "expected_map": 193,
+    "MainProfile": [
+      { "name": "MainChar", "role": "main",
+        "config": "C:\\Games\\Example\\main.ini",
+        "expected_map": 0,
         "partner_skill_names": [],
-        "sp_skill_names": [ "Lichtstrahl", "Lichtknall", ... ] },
-      { "name": "DurkioKrazy", "role": "child", "parent": "KingVonFrmDaO",
+        "sp_skill_names": [ "Skill A", "Skill B", ... ] },
+      { "name": "AltChar", "role": "child", "parent": "MainChar",
         "config": null, "expected_map": null,
         "partner_skill_names": [], "sp_skill_names": [] },
       ...

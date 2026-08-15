@@ -1,18 +1,17 @@
 # autosp-docs
 
-Knowledge base for the autosp game-automation project. This public repo exists so
-AI assistants (via Context7 / opencode) can stay current on the project's
-architecture, key locations, and conventions without grepping the codebase.
+Private engineering knowledge base (publicly mirrored for AI indexing).
 
-The actual build lives in a private repo; this repo contains only documentation
-and public configuration metadata (no license keys, no credentials, no code).
+This repo exists so AI assistants can stay current on the project's architecture,
+key locations, and conventions without grepping the codebase. It contains only
+documentation — no source, no credentials, no data.
 
 ## Contents
 
 - `docs/architecture.md` — how the engine and GUI are wired together
 - `docs/key-locations.md` — file paths and line-region anchors for the main script
 - `docs/pickup-naming.md` — how pickup names are resolved for LIVE STATISTICS
-- `docs/config-format.md` — saved config, settings, and cfgs/profile layout
+- `docs/config-format.md` — saved config, settings, and profile layout
 - `context7.json` — controls what Context7 indexes
 
 ## Keeping it current
