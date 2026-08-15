@@ -1,0 +1,14 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "autosp",
+  "description": "Game automation bot for Nostale. In-process engine + Tkinter GUI in a single Python script.",
+  "folders": ["docs"],
+  "excludeFolders": [],
+  "excludeFiles": [],
+  "rules": [
+    "The main script is 'autosp main branch v5.py'; it loads the backend 'autosp mainbranch v3.py' in-process via _load_backend().",
+    "Pickup naming callbacks run in BackendManager; read pickup data (_pickup_log, _pickup_names, _drop_items) via self.mgr, never self.",
+    "Do NOT modify 'autosp mainbranch v3.py' (loaded read-only).",
+    "Validate with: python -m py_compile \"autosp main branch v5.py\""
+  ]
+}
