@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(r"C:\Users\darke\Documents\autosp")
-FILES = ["main/autosp main branch v6.py", "autosp mainbranch v3.py"]
+FILES = ["autosp main branch v6.py", "autosp mainbranch v3.py"]
 OUT = Path(__file__).resolve().parent.parent / "docs" / "code-index.md"
 
 
