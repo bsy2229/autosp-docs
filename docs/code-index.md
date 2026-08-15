@@ -2,6 +2,8 @@
 
 Snapshot of class/def locations in the active build. Line numbers shift as the script evolves — if a number looks off, grep for the symbol name instead.
 
+For full line *spans* + signatures + docstring summaries, see **[function-map.md](function-map.md)**.
+
 - `main/autosp main branch v6.py` — the main script (GUI + engine)
 - `autosp mainbranch v3.py` — backend, loaded in-process (read-only)
 

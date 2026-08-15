@@ -10,6 +10,8 @@ documentation — no source, no credentials, no data.
 
 - `docs/architecture.md` — how the engine and GUI are wired together
 - `docs/key-locations.md` — file paths and line-region anchors for the main script
+- `docs/function-map.md` — every function in v6 + v3: exact line spans, class, signature, purpose
+- `docs/code-index.md` — quick symbol→line lookup table
 - `docs/pickup-naming.md` — how pickup names are resolved for LIVE STATISTICS
 - `docs/config-format.md` — saved config, settings, and profile layout
 - `context7.json` — controls what Context7 indexes
