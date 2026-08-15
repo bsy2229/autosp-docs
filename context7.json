@@ -1,6 +1,6 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
-  "url": "https://context7.com/bsy2229/autosp-docs",
+  "url": "https://context7.com/bsy2229/docs",
   "public_key": "pk_AbZ8dicB1UaIB1jHHCbwW",
   "projectTitle": "autosp",
   "description": "Internal engineering knowledge base: architecture notes, code index, and config reference for a single-file Python tool.",
@@ -9,7 +9,7 @@
   "excludeFiles": [],
   "rules": [
     "The main script is 'autosp main branch v6.py'; it loads the backend 'autosp mainbranch v3.py' in-process via _load_backend().",
-    "For function/class locations, use the code index at docs/code-index.md first, then grep the exact symbol if the line looks stale.",
+    "For function/class locations, use the function map at docs/function-map.md first (exact line spans + signatures), then grep the exact symbol if the line looks stale.",
     "Pickup naming callbacks run in BackendManager; read pickup data (_pickup_log, _pickup_names, _drop_items) via self.mgr, never self.",
     "Do NOT modify 'autosp mainbranch v3.py' (loaded read-only).",
     "Validate with: python -m py_compile \"autosp main branch v6.py\""
