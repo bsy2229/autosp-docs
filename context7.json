@@ -1,5 +1,7 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
+  "url": "https://context7.com/bsy2229/autosp-docs",
+  "public_key": "pk_AbZ8dicB1UaIB1jHHCbwW",
   "projectTitle": "autosp",
   "description": "Internal engineering knowledge base: architecture notes, code index, and config reference for a single-file Python tool.",
   "folders": ["docs"],
