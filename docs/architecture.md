@@ -1,6 +1,6 @@
 # Architecture
 
-autosp is a single-file Python application: `autosp main branch v5.py`.
+autosp is a single-file Python application: `autosp main branch v6.py`.
 
 ## Engine / GUI split
 

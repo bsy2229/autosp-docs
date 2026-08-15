@@ -6,9 +6,9 @@
   "excludeFolders": [],
   "excludeFiles": [],
   "rules": [
-    "The main script is 'autosp main branch v5.py'; it loads the backend 'autosp mainbranch v3.py' in-process via _load_backend().",
+    "The main script is 'autosp main branch v6.py'; it loads the backend 'autosp mainbranch v3.py' in-process via _load_backend().",
     "Pickup naming callbacks run in BackendManager; read pickup data (_pickup_log, _pickup_names, _drop_items) via self.mgr, never self.",
     "Do NOT modify 'autosp mainbranch v3.py' (loaded read-only).",
-    "Validate with: python -m py_compile \"autosp main branch v5.py\""
+    "Validate with: python -m py_compile \"autosp main branch v6.py\""
   ]
 }
