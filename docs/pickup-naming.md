@@ -9,6 +9,13 @@ of reliability:
 3. **Inventory-diff** — `_capture_pickup_history` compares inventory snapshots
    to detect what was actually gained.
 
+The inventory-diff path depends on fresh `bot._inv_qty_by_name` snapshots, which
+only update when a `query_inventory()` (type-17) response arrives. The engine
+runs a background `_inventory_poll_loop` (started in `engine_start`, interval
+10s) to keep those snapshots current. Without it, inventory only refreshes when
+the ITEM FILTERS picker forces a `query_inventory()` — so the rolling log would
+stay empty until the user opened the filter picker.
+
 ## Rules
 
 - Pickup naming callbacks execute in `BackendManager`.
