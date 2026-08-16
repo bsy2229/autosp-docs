@@ -28,6 +28,26 @@ render the LIVE STATISTICS panel.
 `_capture_pickup_history` performs inventory-diff naming to resolve what was
 actually picked up.
 
+## SP / transform state detection (known gotcha)
+
+The backend's type-18 "skills" message heuristic derives `transformed`
+(SP on/off) by checking whether the skill list contains the basic capture
+skill. v3 compares **vnums** against `_einfangen_vnum` when set, otherwise it
+falls back to name matching against `NORMAL_BASIC_NAMES` (German-only:
+`einfangen`, `fangen`, `catch`). On non-German clients a mage's basic list
+(e.g. "Capture") doesn't match the German names, so `has_sp=True` and the bot
+is wrongly marked transformed (SP on) — the engine then never presses G.
+
+Fix (in v6, backend stays read-only): v6 hardcodes
+`EINFANGEN_SKILL_VNUM = 237` (the Capture skill vnum on this server, confirmed
+live via type-18 dump — 209 was wrong) and re-asserts `bot._einfangen_vnum`
+at connect and after `apply_cache_entries`. v6 also tracks authoritative
+`sl`/`sp`/`#sl^` packets per bot (`_v6_sp_authority`) and re-asserts
+`bot.transformed` after any type-18 skills message that contradicts it.
+
+Diagnostic: v6 logs the first type-18 skills list per bot as
+`[DIAG] <name> type-18 skills: [...]` to inspect skill vnums live.
+
 ## Read-only backend
 
 The backend `autosp mainbranch v3.py` is loaded read-only. Never modify it.
