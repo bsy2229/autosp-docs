@@ -25,10 +25,13 @@ Top-level structure:
     "discord_webhook": { "MainProfile": "https://discord.com/api/webhooks/..." },
     "discord_webhook_sent": { "MainProfile": "2026-08-15" },
     "tracked_items_by_main": { "MainChar": [1012, 1007] },
+    "partner_names": [ "CharA", "CharB" ],
+    "tracked_items": [1012, 1007],
     "dump": { ... },
     "human": { ... },
     "mob_range": ...
-  }
+  },
+  "get_map": { "<ground-drop-object-id>": { "name": ..., "vnum": ..., ... } }
 }
 ```
 
@@ -38,6 +41,7 @@ Top-level structure:
 - `sp_skill_names` / `partner_skill_names` — skill names for SP/partner handling.
 - `settings.discord_webhook` — per-profile webhook URL. Read by `_discord_webhook_url`.
 - `settings.discord_webhook_sent` — per-profile marker of the last calendar day already delivered; prevents duplicate Discord sends. Written after a successful send.
+- `settings.partner_names` / `settings.tracked_items` / `settings.config_dir` and the top-level `get_map` — read by `_load_backend` (v7) after it redirects `CFGS_DIR` to `%LOCALAPPDATA%\Autosp\cfgs`. If these are missing from that per-user config, LIVE STATISTICS pickup naming comes up blank even though the workspace copy has them. v7 recomputes `CONFIGURED_PARTNER_NAMES`, `TRACKED_ITEMS`, `GET_MAP`, `CONFIG_DIR` from the REDIRECTED file (v7 `_load_backend` ~145–191), so the canonical config must live at `%LOCALAPPDATA%\Autosp\cfgs\config.json`.
 
 ## Gotchas (Discord webhook)
 
