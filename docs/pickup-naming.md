@@ -40,3 +40,23 @@ visible for the whole session regardless of log rotation.
 - `_stats_segments` reads `_drop_counts` (falling back to `_pickup_log`) for the
   per-row "last seen" timestamp.
 - Gold entries are never counted (excluded in both `drops()` and the renderer).
+
+## Double-count guard (sayi vnum mismatch + `_fast_named`)
+
+A single physical pickup must never produce two rows. Three naming paths can fire
+for the same drop: sayi vnum, drop-item entity cache, and the inventory-diff.
+Two cross-path guards keep them deduped:
+
+- **Sayi vnum-mismatch skip** — the sayi path pairs its vnum to the oldest
+  unmapped recent get. If that get's entity-cache vnum is KNOWN and differs from
+  the sayi vnum, the sayi skips it (the drop-item cache already named the real
+  object for that pickup). Without this, a sayi arriving right after the
+  drop-item path named the correct object would stamp the same name onto an
+  unrelated earlier get (observed: sayi 4039 -> object A while object B was the
+  real Schuhe drop), double-counting the item.
+- **`_fast_named[bot][name] = timestamp`** — recorded by the sayi and drop-item
+  fast paths the moment they name an item. The inventory-diff (`_capture_pickup_history`)
+  skips any gained name whose fast-path timestamp is < 25s old, so the same
+  pickup surfacing again as an inventory gain is never re-paired to a stale get.
+  This is independent of the `_recent_get_ids` ring, so it still works after
+  heavy looting rotates the get objects out.
